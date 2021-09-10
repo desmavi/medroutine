@@ -1,0 +1,149 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+$primary:#206FEE;
+$dark: #011928;
+$font-family-sans-serif: Lato, sans-serif;
+$input-btn-padding-y:         0.56rem;
+$link-color:                              $dark;
+$link-decoration:                        none;
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+
+button {
+    border:none;
+    background-color: transparent;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.cool-link {
+    display: inline-block;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        transition: width .3s;
+        background-color: transparent;   
+    }
+
+    &:hover::after {
+        width:100%;
+        background-color: $dark;
+        transition: width .3s;
+    }
+}
+
+#features p,
+#download p {
+    color:#4E6574;
+
+}
+
+#features .order,
+#download .order {
+    color:#9DB1BE;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px){
+
+    #menu {
+        display: block;
+        position:relative;
+        z-index: 10;
+    }
+    
+
+    .menu-items {
+        position: fixed;
+        background-color: $primary;
+        height: 100vh;
+        width: 40%;
+        z-index: 5;
+        right:-100%;
+        top:0;
+        transition: right .5s ease-out ;
+        
+    }
+
+    .menu-active {
+        right:0;
+    }
+
+    .menu-active-style ul li a {
+        color:#fff;
+        font-size: 2rem;
+        position: relative;
+        top:6rem;
+        left:2rem;
+        margin-bottom: 1rem;
+    }
+
+    .menu-active-style ul li {
+        margin-bottom: 1rem;
+    }
+
+    #menu-icon {
+        transition: all .5s ease-out;
+    }
+
+    .cool-link:hover::after {
+        background-color: #fff;
+    }
+
+    .menu-open {
+        content: '';
+        display: block;
+        position: fixed;
+        right: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.5s ease-out;
+    }
+
+}
+
+@media (max-width: 524px){
+    .menu-items {
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 390px){
+    .download-btn {
+    display: block !important;
+    }
+}
+
+
+@media (min-width:992px) {
+    // #hero {
+    //     height: 100vh;
+    //     position: relative;
+    //     top:-66px;
+    //     z-index: -1;
+    // }
+
+    .button-lg-padding {
+        padding: 0.8rem 3rem;
+
+    }
+}
